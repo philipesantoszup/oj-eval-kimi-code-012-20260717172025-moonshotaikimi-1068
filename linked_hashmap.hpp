@@ -457,10 +457,10 @@ public:
     }
  
     void erase(iterator pos) {
-        if (pos == end()) {
+        if (pos.node == nullptr || pos.map != this) {
             throw invalid_iterator();
         }
-        if (pos.node == nullptr || pos.node == head || pos.node == tail) {
+        if (pos.node == head || pos.node == tail) {
             throw invalid_iterator();
         }
         
